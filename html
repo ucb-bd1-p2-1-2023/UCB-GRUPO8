@@ -1,0 +1,64 @@
+<!DOCTYPEhtml >
+< html  lang =" es " >
+< cabeza >
+    < juego de caracteres meta  =" UTF-8 " >
+    < meta  http-equiv =" X-UA-Compatible " content =" IE=edge " >
+    < meta  name =" viewport " content =" ancho=ancho-del-dispositivo, escala-inicial=1.0 " >
+    < enlace  rel =" hoja de estilo " href =" https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css " >
+    < título > En el controlador </ título >
+</ cabeza >
+< cuerpo >
+    < div  clase =" caja " >
+        < h1  class =" title is-1 " > 🚘 Formulario de controlador </ h1 >
+        < h2  class =" subtitle is-3 " > Complete sus datos en este formulario </ h2 >
+    </div> _ _
+    < div  clase =" caja my-6 " >
+        < div  clase =" campo " >
+            < label  class =" label " for =" firstName " > Nombre: </ label >
+            < div  clase =" control " >
+                < clase de entrada  =" entrada " tipo =" texto " id =" nombre " marcador de posición =" Ejemplo: Carlos " >
+            </div> _ _
+        </div> _ _
+        < div  clase =" campo " >
+            < etiqueta  clase =" etiqueta " para =" apellido " > Apellido: </ etiqueta >
+            < div  clase =" control " >
+                < clase de entrada  =" entrada " tipo =" texto " id =" apellido " placeholder =" Ejemplo: Terraza " >
+            </div> _ _
+        </div> _ _
+        < div  clase =" campo " >
+            < etiqueta  clase =" etiqueta " para =" correo electrónico " > Correo electrónico: </ etiqueta >
+            < div  clase =" control " >
+                < clase de entrada  =" entrada " tipo =" texto " id =" correo electrónico " marcador de posición =" Ejemplo: carlos@gmail.com " >
+            </div> _ _
+        </div> _ _
+        < div  clase =" bloque " >
+            < button  class =" button is-primary is-meidum is-fullwidth mt-6 " onclick =" enviarForm() " > Enviar </ button >
+        </div> _ _
+    </div> _ _
+    < guión >
+        function  enviarFormulario ( )  {
+
+            función  obtenerValores ( )  {
+                volver  {
+                    nombre : documento . getElementById ( 'nombre' ) . valor ,
+                    apellido : documento . getElementById ( 'apellido' ) . valor ,
+                    correo electrónico : documento . getElementById ( 'correo electrónico' ) . valor ,
+                }
+            }
+            
+
+            const  url  =  'http://localhost:3000/controlador' ;
+             método  const =  'POST' ;
+             encabezados  constantes =  {
+                'Aceptar' : 'aplicación/json' ,
+                'Tipo de contenido' : 'aplicación/json'
+            } ;
+            const  cuerpo  =  JSON . cadena ( getValues ​​( ) ) ;
+            const  medatata  =  { método , encabezados , cuerpo } ;
+            buscar ( url ,  medatata )
+            . luego ( respuesta  =>  respuesta . json ( ) )
+            . entonces ( respuesta  =>  consola . log ( JSON . stringify ( respuesta ) ) )
+        }
+    </ guión >
+</ cuerpo >
+</html> _ _
